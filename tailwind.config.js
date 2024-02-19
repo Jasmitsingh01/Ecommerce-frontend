@@ -13,7 +13,7 @@ export default {
       }
     },
     backgroundImage:{  
-        'banner-1':"url('./src/assets/banner-1.jpg')"  ,
+        'banner-1':"url('./src/assets/banner-1.jpg')",
         'card-1':"url('./src/assets/women-card.jpg')",
         'card-2':"url('./src/assets/men-card.jpg')",
         'card-3':"url('./src/assets/other-card.jpg')",
