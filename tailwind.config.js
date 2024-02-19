@@ -10,9 +10,8 @@ export default {
       colors:{
         'nav':"#403f3f4f",
         'banner-overlay':"#0b4463ad"
-      }
-    },
-    backgroundImage:{  
+      },
+      backgroundImage:{  
         'banner-1':"url('./src/assets/banner.jpg')",
         'card-1':"url('./src/assets/women.jpg')",
         'card-2':"url('./src/assets/men.jpg')",
@@ -23,7 +22,9 @@ export default {
         'banner-5':"url('/src/assets/banner-06.jpg')",    
       
     }
+    },
     
+  
   },
   plugins: [],
 }
