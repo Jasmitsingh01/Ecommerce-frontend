@@ -4,9 +4,14 @@ import Navbar from '../components/Dyaamic/Navbar'
 import Footer from '../components/static/Footer'
 function Layout() {
   const [color, setcolor] = useState('transparent');
-  const [Navdata, setNavdata] = useState([])
-  const [Top, setTop] = useState('100')
+  const [Navdata, setNavdata] = useState([]);
+  const [Top, setTop] = useState('100');
+  const [active,setactive]=useState('');
+  const [before, setbefore] = useState('')
   const currentLocation=useLocation();
+  
+  
+  
   useEffect(() => {
     if (currentLocation.pathname ==='/'|| currentLocation.pathname ==='/about'|| currentLocation.pathname ==='/contact') {
       setcolor('transparent');
@@ -19,9 +24,13 @@ function Layout() {
      if(currentLocation.pathname!='/admin/:id'){
       const Data=['EVERYTHING','WOMEN','MEN','ACCESSORIES' ];
       setNavdata(()=>[...Data])
+      setbefore('nav')
      }
      else{
       setNavdata([])
+      setactive('hidden')
+      setbefore('')
+
      }
 
 
@@ -30,9 +39,9 @@ function Layout() {
   
   return (
 <>
-<Navbar color={color} FirstNav={Navdata} SecondNav={Navdata}/>
+<Navbar color={color} FirstNav={Navdata} SecondNav={Navdata} before={before}/>
 <Outlet/>
-<Footer top={Top}/>
+<Footer top={Top} display={active}/>
 </>
 )
 }

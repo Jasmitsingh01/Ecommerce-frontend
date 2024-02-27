@@ -1,46 +1,56 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaUserPlus } from "react-icons/fa6";
 import { GiShoppingBag } from "react-icons/gi";
+import { useState } from "react";
+import { useEffect } from "react";
+import { AiOutlineDashboard } from "react-icons/ai";
+import { IoSettings } from "react-icons/io5";
+import { FaUserCircle } from "react-icons/fa";
+import { TbFileInvoice } from "react-icons/tb";
+import { MdAddShoppingCart } from "react-icons/md";
+import { BsChatSquareDotsFill } from "react-icons/bs";
+
 
 function NavsideBar() {
+  const location=useLocation();
+  const [Data, setData] = useState([])
+  useEffect(() => {
+    if(location.pathname != '/admin/:id'){
+      setData([{
+        name:'login' ,icon:<FaUserPlus/>,urls:'/signin'},{
+          name:"EVERYTHING",urls:'/store/everything'},{name:"WOMEN",urls:'/store/WOMEN'},{name:"MEN",urls:'/store/MEN'},{name:"ACCESSORIES",urls:'/store/ACCESSORIES'}])
+    }
+    else{
+      setData([{
+        name:'Dashboard',
+        icon:<AiOutlineDashboard/>,
+        urls:'/admin/dashbord'
+      },{name:'Add Product',icon:<MdAddShoppingCart/>,
+      urls:'/admin/addProduct'},{name:'Invoice',icon:<TbFileInvoice/>,
+      urls:'/admin/invoce'},{name:'Chat ',icon:<BsChatSquareDotsFill/>,
+      urls:'/admin/chat'},{name:'Profile',
+      icon:<FaUserCircle/>,
+      urls:'/admin/profile'},{name:'Setting',icon:<IoSettings/>,
+      urls:'/admin/setting'}])
+    }
+  }, [location])
+  
   return (
-    <div className="w-full bg-slate-200 min-h-screen flex flex-col justify-between">
+    <div className="w-full bg-slate-200 min-h-screen flex flex-col ">
       <ul>
-        <li
-          className=" p-3  border-b-[1px]  border-black my-5"
+        {
+          Data.map((items, index)=>(
+            
+            <li  key={index}
+          className=" p-3  border-b-[1px]   border-black my-5"
         >
-          <Link to="/login" className=" text-xl  font-semibold">
-            <FaUserPlus/>
+          <Link to={`${items?.urls}`} className=" text-xl flex justify-between font-semibold">
+            {items?.name }{ items?.icon}
           </Link>
         </li>
-        <li
-          className=" p-3  border-b-[1px] border-black my-5"
-        >
-          <Link to="/store" className=" text-xl  font-semibold">
-            EVERYTHING
-          </Link>
-        </li>
-        <li
-          className=" p-3  border-b-[1px]  border-black my-5"
-        >
-          <Link to="#" className=" text-xl  font-semibold">
-            WOMEN
-          </Link>
-        </li>
-        <li
-          className=" p-3  border-b-[1px]  border-black my-5"
-        >
-          <Link to="#" className=" text-xl  font-semibold">
-            MEN
-          </Link>
-        </li>
-        <li
-          className=" p-3  border-b-[1px]  border-black my-5"
-        >
-          <Link to="#" className=" text-xl  font-semibold">
-            ACCESSORIES
-          </Link>
-        </li>
+          ))
+        }
+       
       </ul>
       <ul>
       <li

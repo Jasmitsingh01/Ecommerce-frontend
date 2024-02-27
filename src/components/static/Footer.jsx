@@ -2,9 +2,9 @@ import logo1 from "../../assets/black_logo.png";
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-function Footer({top}) {
+function Footer({top,display}) {
   return (
-    <div className={` relative lg:top-[${top}vh] `}>
+    <div className={` relative lg:top-[${top}vh] ${display}`}>
       <div className=" p-10 text-center md:text-left  border-b-2">
         <p className=" text-2xl">
           SALE UP TO 70% OFF FOR ALL CLOTHES & FASHION ITEMS, ON ALL BRANDS.
