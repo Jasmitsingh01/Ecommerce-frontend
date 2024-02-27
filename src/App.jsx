@@ -1,45 +1,27 @@
-import { Route, Routes, useLocation } from "react-router-dom";
-import Navbar from "./components/Dyaamic/Navbar";
-import Footer from "./components/static/Footer";
-import Home from "./Pages/user/Home";
-import About from "./Pages/user/About";
-import Contact from "./Pages/user/Contact";
-import Login from "./Pages/user/Login";
-import Productpage from "./Pages/user/Productpage";
-import { useEffect, useState } from "react";
-
-Contact
-function App() {
-  const [Path, setPath] = useState('')
-  const location=useLocation();
-useEffect(() => {
-  setPath(location.pathname);
-
-},[location])
+import { Route,  Routes } from "react-router-dom";
+import{ Home ,About,Contact,Login,Singup,Cart,Productpage} from './Pages/user/index'
+import Layout from "./layout/UserLayout";
+import { Dashbord } from "./Pages/Admin";
 
 
-  return (
-    <>
-{
+const App=()=>{
+  return(
 
-  
-Path ==='/'||Path ==='/about'||Path ==='/contact'? <Navbar color={'transparent'}/>:<Navbar color={'black'}/>
-}    <Routes>
-      <Route path="/" element={<Home/>}/>
-      <Route path="/about" element={<About/>}/>
-      <Route path="/contact" element={<Contact/>}/>
-      <Route path="/login" element={<Login/>}/>
-      <Route path="/store" element={<Productpage/> }/>
-    </Routes>
-    
-{
+      <Routes  >
+      <Route path={'/'} element={<Layout/>}>
+          <Route path="" element={<Home/>}/>
+          <Route path="/about" element={<About/>}/>
+          <Route path="/contact" element={<Contact/>}/>
+          <Route path="/signin" element={<Login/>}/>
+          <Route path="/signup" element={<Singup/>}/>
+          <Route path="/cart" element={<Cart/>}/>
 
-  
-Path ==='/'||Path ==='/about'||Path ==='/contact'? <Footer top={100}/>:<Footer top={0}/>
-}
-    
-    </>
+          <Route path="/store/:id" element={<Productpage/>}/>
+        </Route>
+        <Route path="/admin/:id" element={<Layout/>}>
+          <Route path="" element={<Dashbord/>}/>
+        </Route>
+      </Routes>
   )
 }
-
 export default App

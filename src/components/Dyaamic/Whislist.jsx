@@ -1,9 +1,8 @@
-import React from "react";
 import img from "../../assets/bule_shoe.jpg";
-function CartSidebar() {
+function Whislist() {
   return (
     <div>
-      <h2 className=" text-xl p-5 border-b-2">Shopping Cart</h2>
+      <h2 className=" text-xl p-5 border-b-2">WhisList</h2>
       <div>
         <div className=" flex p-3 justify-between items-center">
           <div className=" flex">
@@ -26,11 +25,11 @@ function CartSidebar() {
           <p>$150</p>
         </div>
         <button className=" absolute bottom-0 p-5 w-full bg-blue-700 text-white font-semibold hover:bg-blue-500 uppercase">
-          CheckOut
+          Move To Cart
         </button>
       </div>
     </div>
   );
 }
 
-export default CartSidebar;
+export default Whislist;

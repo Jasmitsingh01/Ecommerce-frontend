@@ -1,5 +1,6 @@
-import React from "react";
 import { Link } from "react-router-dom";
+import { FaUserPlus } from "react-icons/fa6";
+import { GiShoppingBag } from "react-icons/gi";
 
 function NavsideBar() {
   return (
@@ -9,7 +10,7 @@ function NavsideBar() {
           className=" p-3  border-b-[1px]  border-black my-5"
         >
           <Link to="/login" className=" text-xl  font-semibold">
-            Login
+            <FaUserPlus/>
           </Link>
         </li>
         <li
@@ -42,6 +43,13 @@ function NavsideBar() {
         </li>
       </ul>
       <ul>
+      <li
+          className=" p-3  border-b-[1px]  border-black my-5"
+        >
+          <Link to="/cart" className=" text-xl  font-semibold">
+            <GiShoppingBag/>
+          </Link>
+        </li>
         <li
           className=" p-3  border-b-[1px]  border-black my-5"
         >
@@ -49,6 +57,7 @@ function NavsideBar() {
             About us
           </Link>
         </li>
+       
         <li
           className=" p-3  border-black"
         >

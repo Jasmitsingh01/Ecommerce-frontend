@@ -4,7 +4,7 @@ export default function Login() {
     return (
       <>
       
-        <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+        <section className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-sm">
             <img
               className="mx-auto h-10 w-auto"
@@ -69,8 +69,8 @@ export default function Login() {
   
             <p className="mt-10 text-center text-sm text-gray-500">
               Not a member?
-              <Link to={'#'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                Start a 14 day free trial
+              <Link to={'/signup'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                Sign up
               </Link>
             </p>
             <p className="mt-10 text-center text-sm text-gray-500">
@@ -80,7 +80,7 @@ export default function Login() {
               </Link>
             </p>
           </div>
-        </div>
+        </section>
       </>
     )
   }

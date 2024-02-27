@@ -1,4 +1,3 @@
-import React from 'react'
 import img from '../../assets/bule_shoe.jpg'
 import { FaRegStar } from "react-icons/fa";
 

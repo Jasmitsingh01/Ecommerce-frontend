@@ -1,7 +1,7 @@
-import React from "react";
 import logo1 from "../../assets/black_logo.png";
 import { Link } from "react-router-dom";
 
+// eslint-disable-next-line react/prop-types
 function Footer({top}) {
   return (
     <div className={` relative lg:top-[${top}vh] `}>

@@ -1,9 +1,15 @@
-import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import SideBarProduct from "../../components/Dyaamic/sideBarProduct";
 import ProductCard from "../../components/Dyaamic/ProductCard";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function Productpage() {
+  const [Current, setCurrent] = useState('')
+  const Location=  useLocation();
+  useEffect(() => {
+    setCurrent(Location.pathname.substring(7).toUpperCase());
+  }, [Location])
   return (
     <div className=" bg-slate-300 flex flex-col lg:flex-row py-10 relative m-h-[100vh]  ">
       <div className="w-full p-5  lg:w-1/2">
@@ -11,7 +17,7 @@ function Productpage() {
       </div>
 
       <div className="bg-white w-full  p-5 ">
-        <h3 className=" text-5xl font-normal ms-10  mb-20">Women</h3>
+        <h3 className=" text-5xl font-normal ms-10  mb-20">{Current}</h3>
         <p className=" text-xl mx-5 mb-10">
           Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris
           vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu

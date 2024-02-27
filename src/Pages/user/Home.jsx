@@ -1,4 +1,3 @@
-import React from "react";
 import Categorycard from "../../components/static/Categorycard";
 import ProductCard from "../../components/Dyaamic/ProductCard";
 import Banner from "../../components/static/Banner";

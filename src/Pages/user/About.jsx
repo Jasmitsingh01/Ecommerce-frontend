@@ -1,4 +1,3 @@
-import React from 'react'
 import img from  '../../assets/memeber.jpg'
 function About() {
   return (
