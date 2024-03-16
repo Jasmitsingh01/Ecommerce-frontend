@@ -10,67 +10,98 @@ import { TbFileInvoice } from "react-icons/tb";
 import { MdAddShoppingCart } from "react-icons/md";
 import { BsChatSquareDotsFill } from "react-icons/bs";
 
-
 function NavsideBar() {
-  const location=useLocation();
-  const [Data, setData] = useState([])
+  const location = useLocation();
+  const [Data, setData] = useState([]);
   useEffect(() => {
-    if(location.pathname != '/admin/:id'){
-      setData([{
-        name:'login' ,icon:<FaUserPlus/>,urls:'/signin'},{
-          name:"EVERYTHING",urls:'/store/everything'},{name:"WOMEN",urls:'/store/WOMEN'},{name:"MEN",urls:'/store/MEN'},{name:"ACCESSORIES",urls:'/store/ACCESSORIES'}])
+    if (!location.pathname.includes('admin')) {
+      setData([
+        {
+          name: "login",
+          icon: <FaUserPlus />,
+          urls: "/signin",
+        },
+        {
+          name: "EVERYTHING",
+          urls: "/store/everything",
+        },
+        {
+          name: "WOMEN",
+          urls: "/store/WOMEN",
+        },
+        {
+          name: "MEN",
+          urls: "/store/MEN",
+        },
+        {
+          name: "ACCESSORIES",
+          urls: "/store/ACCESSORIES",
+        },
+      ]);
+    } else {
+      setData([
+        {
+          name: "Dashboard",
+          icon: <AiOutlineDashboard />,
+          urls: "/admin/dashbord",
+        },
+        {
+          name: "Add Product",
+          icon: <MdAddShoppingCart />,
+          urls: "/admin/addProduct",
+        },
+        {
+          name: "Invoice",
+          icon: <TbFileInvoice />,
+          urls: "/admin/invoce",
+        },
+        {
+          name: "Chat ",
+          icon: <BsChatSquareDotsFill />,
+          urls: "/admin/chat",
+        },
+        {
+          name: "Profile",
+          icon: <FaUserCircle />,
+          urls: "/admin/profile",
+        },
+        {
+          name: "Setting",
+          icon: <IoSettings />,
+          urls: "/admin/setting",
+        },
+      ]);
     }
-    else{
-      setData([{
-        name:'Dashboard',
-        icon:<AiOutlineDashboard/>,
-        urls:'/admin/dashbord'
-      },{name:'Add Product',icon:<MdAddShoppingCart/>,
-      urls:'/admin/addProduct'},{name:'Invoice',icon:<TbFileInvoice/>,
-      urls:'/admin/invoce'},{name:'Chat ',icon:<BsChatSquareDotsFill/>,
-      urls:'/admin/chat'},{name:'Profile',
-      icon:<FaUserCircle/>,
-      urls:'/admin/profile'},{name:'Setting',icon:<IoSettings/>,
-      urls:'/admin/setting'}])
-    }
-  }, [location])
-  
+  }, [location]);
+
   return (
     <div className="w-full bg-slate-200 min-h-screen flex flex-col ">
       <ul>
-        {
-          Data.map((items, index)=>(
-            
-            <li  key={index}
-          className=" p-3  border-b-[1px]   border-black my-5"
-        >
-          <Link to={`${items?.urls}`} className=" text-xl flex justify-between font-semibold">
-            {items?.name }{ items?.icon}
-          </Link>
-        </li>
-          ))
-        }
-       
+        {Data.map((items, index) => (
+          <li key={index} className=" p-3  border-b-[1px]   border-black my-5">
+            <Link
+              to={`${items?.urls}`}
+              className=" text-xl flex justify-between font-semibold"
+            >
+              {items?.name}
+              {items?.icon}
+            </Link>
+          </li>
+        ))}
       </ul>
       <ul>
-      <li
-          className=" p-3  border-b-[1px]  border-black my-5"
-        >
+        <li className=" p-3  border-b-[1px]  border-black my-5">
           <Link to="/cart" className=" text-xl  font-semibold">
-            <GiShoppingBag/>
+            <GiShoppingBag />
           </Link>
         </li>
-        <li
-          className=" p-3  border-b-[1px]  border-black my-5"
-        >
+        <li className=" p-3  border-b-[1px]  border-black my-5">
           <Link to="/about" className=" text-xl  font-semibold">
             About us
           </Link>
         </li>
-       
-        <li
-          className=" p-3  border-black"
-        >
+
+        <li className=" p-3  border-black">
           <Link to="/contact" className=" text-xl  font-semibold">
             Contact us
           </Link>

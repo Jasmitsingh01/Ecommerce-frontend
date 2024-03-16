@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
 
 import logo from "../../assets/black_logo.png"
-
+import { useSelector } from "react-redux";
 function Singup() {
+  const  Active=useSelector(state => state.Location.AdminSide)
+
   return (
     <>
       
@@ -14,7 +16,7 @@ function Singup() {
           alt="Your Company"
         />
         <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-         Create a new account
+         Create a new {Active? 'Admin':null} account
         </h2>
       </div>
 
@@ -99,14 +101,14 @@ function Singup() {
 
         <p className="mt-10 text-center text-sm text-gray-500">
           Already a member?
-          <Link to={'/signin'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+          <Link to={Active?'/admin/singin':'/singin'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
             Sign In
           </Link>
         </p>
         <p className="mt-10 text-center text-sm text-gray-500">
           Not a seller?
-          <Link to={'#'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-             Become a seller
+          <Link to={Active?'/signin':'/admin/signup'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+             Become a {Active? 'buyer':'seller'}
           </Link>
         </p>
       </div>

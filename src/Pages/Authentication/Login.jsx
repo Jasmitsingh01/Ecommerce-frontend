@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import logo from "../../assets/black_logo.png"
+import { useSelector } from "react-redux";
 export default function Login() {
+  const  Active=useSelector(state => state.Location.AdminSide)
     return (
+   
       <>
       
         <section className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
@@ -12,7 +15,7 @@ export default function Login() {
               alt="Your Company"
             />
             <h2 className="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-              Sign in to your account
+              Sign in to your {Active? 'Admin':null} account 
             </h2>
           </div>
   
@@ -69,14 +72,14 @@ export default function Login() {
   
             <p className="mt-10 text-center text-sm text-gray-500">
               Not a member?
-              <Link to={'/signup'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+              <Link to={Active?'/admin/singup':'/signin'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                 Sign up
               </Link>
             </p>
             <p className="mt-10 text-center text-sm text-gray-500">
               Not a seller?
-              <Link to={'#'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
-                 Become a seller
+              <Link to={Active?'/signin':'/admin/singup'} className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+                 Become a {Active? 'buyer':'seller'}
               </Link>
             </p>
           </div>

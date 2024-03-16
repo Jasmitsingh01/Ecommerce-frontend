@@ -1,56 +1,70 @@
 /* eslint-disable react/prop-types */
-import { AiOutlineDashboard } from "react-icons/ai";
-import { IoSettings } from "react-icons/io5";
-import { FaUserCircle } from "react-icons/fa";
-import { TbFileInvoice } from "react-icons/tb";
-import { MdAddShoppingCart } from "react-icons/md";
-import { BsChatSquareDotsFill } from "react-icons/bs";
+import { FaCaretRight } from "react-icons/fa";
+import { MdSpaceDashboard } from "react-icons/md";
+import { BiSolidCartAlt } from "react-icons/bi";
+import { BiSitemap } from "react-icons/bi";
+import { AiFillContainer } from "react-icons/ai";
+import logo1 from "../../assets/black_logo.png";
+import { useState } from "react";
+import { HideSideBar } from "../../feautures/Admin";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { useEffect } from "react";
 
-import logo1 from "../../assets/men.jpg";
+function SidebarAdmin() {
 
-function SidebarAdmin({active}) {
+  const Dispacth=useDispatch();
+  const Side=useSelector(state=>state.Location.AdminSidebar)
+  const [Product, setProduct] = useState(false);
+  const [order, setorder] = useState(false);
+  const [billing, setbilling] = useState(false);
+  useEffect(() => {
+    window.addEventListener('scroll',(e)=>{
+      if (e.currentTarget.scrollY>87) {
+        document.getElementsByTagName('aside')[0].style.top=0;
+      }else if(e.currentTarget.scrollY<=87){
+        document.getElementsByTagName('aside')[0].style.top='88px';
+      }
+    })
+  },)
+  
   return (
-    <aside className={` hidden bg-sky-400 lg:flex lg:flex-col  w-${active?'1/6':'fit'} min-h-[85.5vh] justify-evenly  p-2`}>
-      <div className="p-5 text-center mx-auto hidden mb-5">
-        {
-          active?<><img src={logo1} alt="logo" className=" w-[100px] h-[100px] rounded-full mb-3" />
-          <p className=" text-2xl">UserName</p></>:null
-        }
+    <aside className={` hidden fixed top-[89px] w-1/4 z-10 bg-white md:flex flex-col md:w-1/2 xl:w-1/4  py-2 px-2 h-[100vh] shadow-lg  overflow-y-scroll  ${Side?'left-0':'left-[-50%]'} transition-[left] duration-200 `}>
+     <div className=" border-b-2 self-start pb-2 mx-auto w-full" onClick={()=>Dispacth(HideSideBar())}>
+      <img src={logo1} alt="company-logo" className=" mx-auto" />
+      <p className="text-[20px] text-center">Your Favorite Store</p>
+     </div>
+     <div className=" flex flex-col ">
+      <button className=" my-3 bg-blue-400   py-2 rounded"><Link to={'/admin/'} className="flex items-center justify-center gap-3 "><MdSpaceDashboard/>Dashboard </Link></button>
+      <div >
+      <button className="flex items-center my-3 bg-blue-400 justify-between gap-3 py-2 rounded w-full"><span className="flex items-center gap-3 mx-auto" onClick={()=>setProduct(!Product)}><BiSitemap/>Product</span> <FaCaretRight/></button>
+       <ul className={`${Product?'':'hidden'}`}>
+        <li className=" border-b-2 py-2"><Link to={'/admin/allProduct'}>All Products</Link></li>
+        <li className=" border-b-2 py-2"><Link to={'/admin/addProduct'}>Add Products</Link></li>
+       </ul>
       </div>
-      <button className=" border-2 mb-2 rounded p-3 flex justify-between items-center text-xl">
-       {
-        active? 'Dashboard':null
-       } <AiOutlineDashboard/>
-      </button>
-      
-      <button className=" border-2 mb-2  p-3 rounded flex justify-between items-center text-xl">
-       {
-        active? 'Add Product':null
-       } <MdAddShoppingCart/>
-      </button>
-      <button className=" border-2 mb-2  p-3 rounded flex justify-between items-center text-xl">
-       {
-        active?'Invoice':null
-       } <TbFileInvoice/>
-      </button>
-      <button className=" border-2 mb-2  p-3 rounded flex justify-between items-center text-xl">
-       {
-        active?'Chat ':null
-       }                       <BsChatSquareDotsFill/>
-      </button>
-      <button className=" border-2 mb-2  p-3 rounded flex justify-between items-center text-xl">
-       {
-        active?'Profile':null
-       } <FaUserCircle/>
-      </button>
-      <button className=" border-2 mb-2  p-3 rounded flex justify-between items-center text-xl">
-       {
-        active?'Setting ':null
-       }                       <IoSettings/>
-      </button>
-    
+      <div>
+      <button className="flex items-center my-3 bg-blue-400 justify-between gap-3 py-2 rounded w-full" onClick={()=>setorder(!order)}><span className="flex items-center gap-3 mx-auto"><BiSolidCartAlt/>Order</span> <FaCaretRight/></button>
+       <ul className={`${order?'':'hidden'}`}>
+        <li className=" border-b-2 py-2"><Link to={'/admin/allorder'}>All Orders</Link></li>
+     
+       </ul>
+      </div>
+      <div className=" py-2 border-b-2 mb-5">
+      <button className="flex items-center my-3 bg-blue-400 justify-between gap-3 py-2 rounded w-full"><span className="flex items-center gap-3 mx-auto" onClick={()=>setbilling(!billing)}><AiFillContainer/>Billing</span> <FaCaretRight/></button>
+      <ul className={`${billing?'':'hidden'}`} >
+        <li><Link to={'/admin/invoice'}>Create Invoice</Link></li>
+      </ul>
+      </div>
+      <button className="flex items-center my-3 bg-blue-400 justify-center gap-3 py-2 rounded"><Link to={'/admin/profilie'}>Setting</Link> </button>
+
+
+
+
+     </div>
     </aside>
   )
 }
 
 export default SidebarAdmin
+

@@ -1,21 +1,23 @@
-import { useState } from "react";
-import SidebarAdmin from "../../components/Dyaamic/SidebarAdmin"
-import { AiOutlineMenuFold } from "react-icons/ai";
+
 // import TotalProduct from "../../components/Anality/TotalProduct";
 
+import img from '../../assets/Balance.webp'
+import AdminPageHeader from '../../components/static/AdminPageHeader'
 function Dashbord() {
-  const [active,steactive]=useState(false)
-  return (
-    <section className=" relative flex flex-col w-full">
-      <div className="w-full">
-      <SidebarAdmin active={active}/>
 
-      </div>
-        <button className={` bg-sky-200 p-3 rounded hidden lg:block shadow hover:bg-sky-400 fixed top-[100px] ${active?'left-[260px]':'left-[70px]'} w-fit h-fit  text-2xl`} onClick={()=>steactive(!active)} ><AiOutlineMenuFold/></button>
-        <div className=" flex  flex-col justify-around">
-          
+  return (
+    <section className=" relative  w-full">
+
+    <AdminPageHeader value={'Sales Analaytics'}/>
+      <div className="flex flex-col min-[425px]:flex-row  justify-between">
+        <div className="w-1/2">Bar chart</div>
+        <div className="w-full min-[425px]:w-1/2 md:w-1/4 bg-blue-300 me-5">
+          <img src={img} alt="Price" className="w-full h-full" />
         </div>
+      </div>    
     </section>
+
+       
   )
 }
 

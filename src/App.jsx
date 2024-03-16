@@ -1,7 +1,7 @@
 import { Route,  Routes } from "react-router-dom";
 import{ Home ,About,Contact,Login,Singup,Cart,Productpage} from './Pages/user/index'
 import Layout from "./layout/UserLayout";
-import { Dashbord } from "./Pages/Admin";
+import { AddProduct, AllProducts, CustomerSupport, Dashbord ,Invoice,Orderhistory } from "./Pages/Admin";
 
 
 const App=()=>{
@@ -18,8 +18,17 @@ const App=()=>{
 
           <Route path="/store/:id" element={<Productpage/>}/>
         </Route>
-        <Route path="/admin/:id" element={<Layout/>}>
+        <Route path="/admin" element={<Layout/>}>
           <Route path="" element={<Dashbord/>}/>
+          <Route path="/admin/singin" element={<Login/>}/>
+          <Route path="/admin/allProduct" element={<AllProducts/>}/>
+          <Route path="/admin/addProduct" element={<AddProduct/>}/>
+          <Route path="/admin/allorder" element={<Orderhistory/>}/>
+          <Route path="/admin/customersupport" element={<CustomerSupport/>}/>
+          <Route path="/admin/invoice" element={<Invoice/>}/>
+          <Route path="/admin/singup" element={<Singup/>}/>
+        
+
         </Route>
       </Routes>
   )
