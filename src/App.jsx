@@ -20,7 +20,7 @@ const App=()=>{
           <Route path="/store/:id" element={<Productpage/>}/>
         </Route>
         <Route path="/admin" element={<Layout/>}>
-          <Route path="/dashobord" element={<Dashbord/>}/>
+          <Route path="/admin/dashobord" element={<Dashbord/>}/>
           <Route path="/admin/singin" element={<Login/>}/>
           <Route path="/admin/allProduct" element={<AllProducts/>}/>
           <Route path="/admin/addProduct" element={<AddProduct/>}/>
