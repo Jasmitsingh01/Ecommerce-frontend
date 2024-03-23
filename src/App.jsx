@@ -21,6 +21,7 @@ const App=()=>{
   <Route path="/cart" element={<Cart/>}/>
   <Route path="/signin" element={<Login/>}/>
   <Route path="/singup" element={<Singup/>}/>
+  <Route path="/profile" element={<Profile/>}/>
   <Route path="/admin" element={<Dashbord/>}/>
   <Route path="/admin/signin" element={<Login/>}/>
   <Route path="/admin/singup" element={<Singup/>}/>
@@ -28,6 +29,8 @@ const App=()=>{
   <Route path="/admin/allProduct" element={<AllProducts/>}/>
   <Route path="/admin/invoice" element={<Invoice/>}/>
   <Route path="/admin/allorder" element={<Orderhistory/>}/>
+  <Route path="/chat" element={<CustomerSupport/>}/>
+
   <Route path="/admin/profile/:id" element={<Profile/>}/>
 </Route>
 
