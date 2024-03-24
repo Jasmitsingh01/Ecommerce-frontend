@@ -1,3 +1,5 @@
+import React from "react";
+
 function InvoiceTable() {
   return (
     <div className=" overflow-x-auto mb-3">
@@ -74,11 +76,8 @@ function InvoiceTable() {
               <p>$0</p>
             </td>
           </tr>
-         
         </tbody>
-      
       </table>
-  
     </div>
   );
 }

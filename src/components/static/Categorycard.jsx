@@ -1,3 +1,4 @@
+import React from "react";
 
 function Categorycard() {
   return (
@@ -35,7 +36,7 @@ function Categorycard() {
       <div className=" bg-card-3 bg-cover  w-full bg-right-top lg:w-[400px]	md:w-[300px] h-[400px] mb-5 flex flex-col ite justify-end px-3 py-5 relative before:absolute before:w-full before:h-full before:bg-nav before:top-0 before:left-0">
         <div className="z-[1]">
           <h3 className="text-white text-2xl font-semibold mb-2">
-          Let&#x27;s Lorem Suit Up!
+            Let&#x27;s Lorem Suit Up!
           </h3>
           <p className="text-white text-sm font-semibold mb-2">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ac

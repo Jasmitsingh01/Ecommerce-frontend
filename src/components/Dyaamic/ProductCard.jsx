@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux';
-import img from '../../assets/bule_shoe.jpg'
 import { FaRegStar } from "react-icons/fa";
 
 function ProductCard() {
@@ -8,7 +7,7 @@ function ProductCard() {
   return (
     <div className='px-3'>
       <div className= ' relative mb-2'>
-        <img src={img} alt="Product" className='object-cover w-[120px] h-[120px]  min-[545px]:w-[250px] min-[545px]:h-[250px]' />
+        <img src={'/bule_shoe.jpg'} alt="Product" className='object-cover w-[120px] h-[120px]  min-[545px]:w-[250px] min-[545px]:h-[250px]' />
         <span className=' absolute  bg-white rounded-full px-2 py-1 top-1 md:top-[10px] md:left-[10px] text-sm border-0 shadow-md'>Sale !</span>
       </div>
       <div>

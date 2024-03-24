@@ -1,8 +1,7 @@
+import React from "react";
 
 function Deliveredorder() {
-  return (
-    <div>Deliveredorder</div>
-  )
+  return <div>Deliveredorder</div>;
 }
 
-export default Deliveredorder
+export default Deliveredorder;

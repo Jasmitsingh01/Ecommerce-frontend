@@ -1,8 +1,8 @@
-import logo1 from "../../assets/black_logo.png";
+import React from "react";
 import { Link } from "react-router-dom";
 
 // eslint-disable-next-line react/prop-types
-function Footer({top,display}) {
+function Footer({ top, display }) {
   return (
     <div className={` relative lg:top-[${top}vh] ${display}`}>
       <div className=" p-10 text-center md:text-left  border-b-2">
@@ -13,7 +13,7 @@ function Footer({top,display}) {
       <div className="grid p-10 text-center md:text-left md:grid-cols-4 xl:justify-items-center md:items-center  lg:px-0 md:px-10 border-b-2">
         <div>
           <img
-            src={logo1}
+            src={"/black_logo.png"}
             alt="logo"
             className="w-[100px] h-[50px] md:w-[100px] md:h-[50px] object-contain mb-5 mx-auto md:mx-0"
           />

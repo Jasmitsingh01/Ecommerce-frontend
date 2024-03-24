@@ -1,4 +1,5 @@
-import img from "../../assets/bule_shoe.jpg";
+import React from "react";
+
 function Whislist() {
   return (
     <div>
@@ -8,7 +9,7 @@ function Whislist() {
           <div className=" flex">
             <div className="flex">
               <img
-                src={img}
+                src={"/bule_shoe.jpg"}
                 alt="Product"
                 className=" w-[50px] h-[50px] me-2"
               />
@@ -18,7 +19,9 @@ function Whislist() {
               </div>
             </div>
           </div>
-          <button className=" border-2 border-black w-[30px] h-[30px] rounded-full ">X</button>
+          <button className=" border-2 border-black w-[30px] h-[30px] rounded-full ">
+            X
+          </button>
         </div>
         <div className="w-full p-3 absolute bottom-[50px] border-2 flex justify-between mb-5">
           <p className="text-lg font-semibold">Subtotal</p>

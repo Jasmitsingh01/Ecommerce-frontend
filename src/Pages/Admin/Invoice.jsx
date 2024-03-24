@@ -1,3 +1,5 @@
+import React from "react";
+
 import InvoiceTable from "../../components/Dyaamic/InvoiceTable.jsx";
 import AdminPageHeader from "../../components/static/AdminPageHeader";
 
@@ -138,11 +140,16 @@ function Invoice() {
               className=" outline-none border-2 py-2 rounded"
             ></textarea>
           </div>
-          
-         <div className=" flex items-center">
-         <input type="checkbox" name="sameAddress" id="sameAddress" />
-          <label htmlFor="sameAddress" className="text-blue-950 font-bold mb-2 mx-2">Will your Shipping & Billing address same?</label>
-         </div>
+
+          <div className=" flex items-center">
+            <input type="checkbox" name="sameAddress" id="sameAddress" />
+            <label
+              htmlFor="sameAddress"
+              className="text-blue-950 font-bold mb-2 mx-2"
+            >
+              Will your Shipping & Billing address same?
+            </label>
+          </div>
         </div>
         <div className=" grid grid-cols-1 md:grid-cols-2 md:gap-3 mb-3">
           <h3 className=" text-blue-950 underline font-bold text-lg mb-3 md:col-span-2">
@@ -203,25 +210,36 @@ function Invoice() {
           <h3 className=" text-blue-950 underline font-bold text-lg mb-3">
             Product info
           </h3>
-             <InvoiceTable />
-           <div className=" flex justify-between items-start ">
-           <button className=" border-2 border-dashed border-blue-400 text-blue-400 rounded-lg p-2">Add Item</button>
-             <ul className=" items-end">
+          <InvoiceTable />
+          <div className=" flex justify-between items-start ">
+            <button className=" border-2 border-dashed border-blue-400 text-blue-400 rounded-lg p-2">
+              Add Item
+            </button>
+            <ul className=" items-end">
               <li className=" border-b-2 mb-2">Sub Total :</li>
               <li className=" border-b-2 mb-2">Estimated Tax (18%) : </li>
               <li className=" border-b-2 mb-2">Item Discounts : -$0</li>
               <li className=" border-b-2 mb-2">Shipping Charge:</li>
               <li className=" border-b-2 mb-2">Total Amount:</li>
             </ul>
-           </div>
+          </div>
         </div>
 
         <div className=" flex flex-col items-end mb-3 ">
-            <div className=" flex items-start flex-wrap">
-            <button type="reset" className=" border-2 p-2 mx-3  rounded-lg text-slate-300 ">Reset</button>
-          <button className=" border-2 p-2 mx-3  border-green-400 rounded-lg text-green-400 mb-3 ">Create</button>
-          <button className=" border-2 p-2 mx-3  border-blue-400 rounded-lg text-blue-400 ">Preview & Download</button>
-            </div>
+          <div className=" flex items-start flex-wrap">
+            <button
+              type="reset"
+              className=" border-2 p-2 mx-3  rounded-lg text-slate-300 "
+            >
+              Reset
+            </button>
+            <button className=" border-2 p-2 mx-3  border-green-400 rounded-lg text-green-400 mb-3 ">
+              Create
+            </button>
+            <button className=" border-2 p-2 mx-3  border-blue-400 rounded-lg text-blue-400 ">
+              Preview & Download
+            </button>
+          </div>
         </div>
       </form>
     </div>

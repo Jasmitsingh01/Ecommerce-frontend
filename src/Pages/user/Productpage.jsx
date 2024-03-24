@@ -1,3 +1,5 @@
+import React from "react";
+
 import { FaArrowRight } from "react-icons/fa";
 import SideBarProduct from "../../components/Dyaamic/sideBarProduct";
 import ProductCard from "../../components/Dyaamic/ProductCard";
@@ -5,11 +7,11 @@ import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 function Productpage() {
-  const [Current, setCurrent] = useState('')
-  const Location=  useLocation();
+  const [Current, setCurrent] = useState("");
+  const Location = useLocation();
   useEffect(() => {
     setCurrent(Location.pathname.substring(7).toUpperCase());
-  }, [Location])
+  }, [Location]);
   return (
     <div className=" bg-slate-300 flex flex-col lg:flex-row py-10 relative m-h-[100vh]  ">
       <div className="w-full p-5  lg:w-1/2">

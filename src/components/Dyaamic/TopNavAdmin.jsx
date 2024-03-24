@@ -1,7 +1,5 @@
 import { CiSearch } from "react-icons/ci";
 import { IoMenu } from "react-icons/io5";
-
-import img from '../../assets/Profile.jpeg'
 import { useState } from "react";
 import { ShowSideBar } from "../../feautures/Admin";
 import { useDispatch } from "react-redux";
@@ -21,7 +19,7 @@ function TopNavAdmin() {
     </form>
     
     <div className="">
-        <img src={img} alt="Profile" className=" rounded-full w-[50px] h-[50px] shadow me-10" onClick={()=>setShow(!Show)}/>
+        <img src={'/Profile.jpeg'} alt="Profile" className=" rounded-full w-[50px] h-[50px] shadow me-10" onClick={()=>setShow(!Show)}/>
         <div className={`Dropdwon ${Show?'hidden':null} absolute right-2 rounded border-2 bg-white z-10`}>
             <div className="p-2 border-b-2">View Proflie</div>
             <div className="p-2 border-b-2">Message</div>

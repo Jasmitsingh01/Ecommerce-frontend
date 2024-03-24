@@ -1,8 +1,7 @@
+import React from "react";
 
 function CustomerSupport() {
-  return (
-    <div>CustomerSupport</div>
-  )
+  return <div>CustomerSupport</div>;
 }
 
-export default CustomerSupport
+export default CustomerSupport;

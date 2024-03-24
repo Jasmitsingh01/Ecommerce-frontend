@@ -1,3 +1,4 @@
+import React from "react";
 import { Link, useLocation } from "react-router-dom";
 import { FaUserPlus } from "react-icons/fa6";
 import { GiShoppingBag } from "react-icons/gi";
@@ -14,7 +15,7 @@ function NavsideBar() {
   const location = useLocation();
   const [Data, setData] = useState([]);
   useEffect(() => {
-    if (!location.pathname.includes('admin')) {
+    if (!location.pathname.includes("admin")) {
       setData([
         {
           name: "login",
